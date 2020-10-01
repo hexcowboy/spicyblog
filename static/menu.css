@@ -1,0 +1,222 @@
+#menu #toggle {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  position: relative;
+  top: 12px;
+}
+
+#menu #toggle:checked ~ #menu-icon span:first-child {
+  width: 20.5px;
+  transform: rotate(45deg);
+}
+
+#menu #toggle:checked ~ #menu-icon span:nth-child(2) {
+  width: 0;
+  opacity: 0;
+}
+
+#menu #toggle:checked ~ #menu-icon span:last-child {
+  width: 20.5px;
+  transform: rotate(-45deg);
+}
+
+#menu #toggle:checked ~ #menu-list {
+  left: 0;
+  transition: left 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu #menu-icon {
+  position: relative;
+  top: -12px;
+  z-index: 1;
+}
+
+#menu #menu-icon span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin-bottom: 5px;
+  background: black;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              width 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menu-icon span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menu-icon span:last-child {
+  transform-origin: 0% 100%;
+}
+
+#menu #menu-list {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -50%;
+  height: 100vh;
+  width: 30%;
+  margin: 0;
+  padding-top: 10rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: aliceblue;
+  color: black;
+  transition: left 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu #menu-list li {
+  list-style: none;
+  font-family: soleil,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 40px;
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+}
+
+#menu #menu-list a,
+#menu #menu-list a:hover,
+#menu #menu-list a:visited,
+#menu #menu-list a:active {
+  color: black;
+}
+
+/* Anything smaller than 768px (phones) */
+@media only screen and (max-width: 768px) {
+  #menu #menu-list {
+    width: 100%;
+    left: -120%;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  #menu #menu-list li {
+    padding-left: 0;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #menu #menu-list li {
+    padding-left: 5rem;
+  }
+}
+
+
+
+
+#profile #toggle {
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  position: relative;
+  top: 15px;
+}
+
+#profile #profile-icon {
+  position: relative;
+  top: -15px;
+  z-index: 1;
+}
+
+#profile #toggle:checked ~ #profile-icon span {
+  border: 2px solid white;
+  transition: border 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#profile #toggle:checked ~ #profile-list {
+  right: 0;
+  transition: right 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#profile #profile-icon span {
+  display: block;
+  z-index: 1;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  border: 2px solid black;
+}
+
+#profile #profile-icon .head {
+  width: 8px;
+  height: 8px;
+  margin-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+#profile #profile-icon .body {
+  width: 20px;
+  height: 8px;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+#profile #profile-list {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: -50%;
+  height: 100vh;
+  width: 30%;
+  margin: 0;
+  padding-top: 10rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: darkblue;
+  color: white;
+  transition: right 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#profile #profile-list li {
+  list-style: none;
+  font-family: soleil,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 40px;
+  padding-right: 1rem;
+  text-align: right;
+  padding-bottom: 2rem;
+}
+
+#profile #profile-list a,
+#profile #profile-list a:hover,
+#profile #profile-list a:visited,
+#profile #profile-list a:active {
+  color: white;
+}
+
+/* Anything smaller than 768px (phones) */
+@media only screen and (max-width: 768px) {
+  #profile #profile-list {
+    width: 80%;
+    right: -120%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #profile #profile-list li {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #profile #profile-list li {
+    padding-right: 5rem;
+  }
+}

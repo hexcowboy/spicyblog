@@ -6,8 +6,8 @@ Documentation is currently a work in progress.
 
 To get started with development, you will need to create a Postgres database:
 ```bash
-createdb blog                     # Creates PostgreSQL database locally
-createuser blog -P                # Create a user and prompt for password
+createdb blog                         # Creates PostgreSQL database locally
+createuser blog -P                    # Create a user and prompt for password
 ```
 
 Next, export the following environment variables with the information you just entered for the database.
