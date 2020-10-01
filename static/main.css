@@ -150,7 +150,6 @@ header #menu {
   font-weight: 300;
   font-style: normal;
   font-size: 12px;
-  letter-spacing:
   text-align: center;
 }
 
@@ -160,9 +159,29 @@ header #menu {
   text-decoration: none;
 }
 
+.article-body h1:first-of-type {
+  margin-top: 10px;
+}
+
+.article-body a {
+  color: darkblue;
+}
+
 .article-body img {
   margin-left: -6rem;
   width: calc(100% + 12rem);
+}
+
+.article-body code {
+  font-family: 'SF Pro', 'Fira Code', monospace;
+}
+
+.article-body pre {
+  padding: 24px;
+  max-width: 100%;
+  overflow: scroll;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 /* Subscribe block */

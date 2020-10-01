@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block article_title %}
-  <h1><a href="{% url 'blog:posts' %}">{{ post.title }}</a></h1>
-{% endblock %}
-
 {% block cover %}
   <img class="cover" src="https://images.squarespace-cdn.com/content/v1/5330c121e4b0ec02b60123b4/1595276169995-O3Z0C64FM64CGTTBT775/ke17ZwdGBToddI8pDm48kMXRibDYMhUiookWqwUxEZ97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luUmcNM2NMBIHLdYyXL-Jww_XBra4mrrAHD6FMA3bNKOBm5vyMDUBjVQdcIrt03OQ/0V5A1630.JPG?format=500w">
 {% endblock cover %}
@@ -11,6 +7,6 @@
 {% block content %}
 <section class="article-body">
   <span class="article-info"><a class="author" href="">{{ post.author }}</a> on <em>{{ post.posted_date | date:"F jS" }}</em></span>
-  <p>{{ post.body }}</p>
+  {{ post.body_rendered | safe }}
 </section>
 {% endblock content %}
