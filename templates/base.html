@@ -36,7 +36,7 @@
             <span></span>
           </span>
           <ul id="menu-list">
-            <li><a href="">Home</a></li>
+            <li><a href="{% url 'blog:posts' %}">Home</a></li>
             <li><a href="">Adventures</a></li>
             <li><a href="">Projects</a></li>
           </ul>
@@ -63,9 +63,11 @@
     <section id="subscribe">
       <div>
         <h1><mark>Follow the adventure.</mark></h1>
-        <form class="form-inline">
-          <label for="email">Email:</label>
-          <input type="email" autocomplete="off" name="email" placeholder="Email Address">
+        <form class="form-inline" action="{% url 'subscriptions:subscribe' %}" method="POST">
+          {% csrf_token %}
+          <label for="id_email_address">Email:</label>
+          <input type="email" autocomplete="off" name="email_address" placeholder="Email Address" maxlength="254" required="true" id="id_email_address" data-np-checked="1">
+          <input type="hidden" name="next" value="{{ request.path }}">
           <button type="submit">Subscribe</button>
         </form>
       </div>

@@ -1,7 +1,6 @@
+import markdown
 from django.conf import settings
 from django.db import models
-
-import markdown
 
 
 class Post(models.Model):
@@ -15,7 +14,8 @@ class Post(models.Model):
     body_rendered = models.TextField(blank=True)
 
     def save(self, *args, **kwargs):
-        self.body_rendered = markdown.markdown(self.body, extensions=['codehilite', 'fenced_code'])
+        self.body_rendered = markdown.markdown(
+            self.body, extensions=['codehilite', 'fenced_code'])
         super().save(*args, **kwargs)
 
     def __str__(self):
