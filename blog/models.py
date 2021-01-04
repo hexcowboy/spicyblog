@@ -8,6 +8,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200, blank=True)
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL,
                                on_delete=models.CASCADE)
+    slug = models.SlugField()
     posted_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     body = models.TextField()

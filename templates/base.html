@@ -60,18 +60,9 @@
       {% endblock content %}
     </div>
 
-    <section id="subscribe">
-      <div>
-        <h1><mark>Follow the adventure.</mark></h1>
-        <form class="form-inline" action="{% url 'subscriptions:subscribe' %}" method="POST">
-          {% csrf_token %}
-          <label for="id_email_address">Email:</label>
-          <input type="email" autocomplete="off" name="email_address" placeholder="Email Address" maxlength="254" required="true" id="id_email_address" data-np-checked="1">
-          <input type="hidden" name="next" value="{{ request.path }}">
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </section>
+    {% block subscribe %}
+      {% include 'subscriptions/mixins/subscribe_mixin.html' %}
+    {% endblock %}
 
     <footer>
       <div class="content">

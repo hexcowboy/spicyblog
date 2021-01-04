@@ -1,5 +1,4 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 
 from .forms import SubscriptionForm
@@ -9,8 +8,7 @@ from .models import Subscription
 class SubscriberCreateView(CreateView):
     """Adds an email to the subscription list"""
     model = Subscription
-    fields = ['email_address']
-    form = SubscriptionForm
+    form_class = SubscriptionForm
 
     def form_valid(self, form):
         """
@@ -24,6 +22,8 @@ class SubscriberCreateView(CreateView):
         else:
             ip = request.META.get('REMOTE_ADDR')
 
+        request.session['subscribed'] = True
+
         form.instance.ip_address = ip
         return super().form_valid(form)
 
@@ -36,4 +36,4 @@ class SubscriberCreateView(CreateView):
         request = self.request
         last_page = request.POST.get('next', '/')
         last_page = request.META.get('HTTP_REFERER', last_page)
-        return last_page
+        return last_page + '#subscribe'
