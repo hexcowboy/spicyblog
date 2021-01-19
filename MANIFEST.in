@@ -1,0 +1,4 @@
+include LICENSE
+include REAME.md
+recursive-include blog/static *
+recursive-include blog/templates *

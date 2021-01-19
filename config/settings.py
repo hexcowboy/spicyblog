@@ -1,7 +1,8 @@
+import os
 from pathlib import Path
 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-SECRET_KEY = 'sz7kj!pe1u#vh$qr-!&7tedc&((im1vo#xyqc^is=ovs^u326k'
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -12,7 +13,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [ BASE_DIR / 'static', ]
+# STATICFILES_DIRS = [ BASE_DIR / 'static', ]
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
